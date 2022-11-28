@@ -6,7 +6,13 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [],
+				"inputs": [
+					{
+						"internalType": "string[]",
+						"name": "secretShares",
+						"type": "string[]"
+					}
+				],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
 			},
@@ -121,16 +127,16 @@
 				"type": "function"
 			},
 			{
-				"inputs": [
+				"inputs": [],
+				"name": "regenerate",
+				"outputs": [
 					{
-						"internalType": "address",
-						"name": "name",
-						"type": "address"
+						"internalType": "string[]",
+						"name": "",
+						"type": "string[]"
 					}
 				],
-				"name": "regenerate",
-				"outputs": [],
-				"stateMutability": "nonpayable",
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -301,7 +307,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/ShareSecret.sol": "SecretShare"
+			"contracts/ShareSecret.sol": "Node"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -316,11 +322,11 @@
 	},
 	"sources": {
 		"contracts/ShareSecret.sol": {
-			"keccak256": "0x1c63f9b07027d95feb405cd4460db8ced262251ceb88a61131cc43a0d13fdd3e",
+			"keccak256": "0xd110f6350aade6279ea4ea78a932effb88d839bd5da3dd7df16937ab40ba3d93",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://d4c5ac6e036f602df302d53b0e8f544b95ca651a3f9cc5f3e8dfbb5a9737c4a6",
-				"dweb:/ipfs/QmR83wHNV3k2xfQnLvzDbJuNai2M3PaR23WH2zoQzZiHMM"
+				"bzz-raw://3dd63fd0d8401237fc983aea455341d43dcd34f0dbdfc919944bffdb3c1cdcb6",
+				"dweb:/ipfs/QmU1vfngAvoha3Pgrebi4bQHoyu5yMbfJGCgFWrxC2Lvj1"
 			]
 		}
 	},

@@ -2,17 +2,17 @@
 pragma solidity ^0.8.17;
 
 
-// contract of a node
-contract Node {
+//secret share contract 
+contract SecretShare {
     address public owner;
     address payable[] public shareHolders; //My secret holders
     string[] public shares;    //Shares list belonging to the user 
     mapping(address => string) public shareHoldersMap; //My secret baring holders
     mapping(address => string) public sharesMap; //The secrets I'm holding
 
-    constructor(string[] memory secretShares) {
+    constructor() {
         owner = msg.sender;
-        shares =secretShares ;
+        shares = ["describe", "action", "defy"];
     }
 
     // msg.data (bytes): complete calldata
@@ -23,12 +23,9 @@ contract Node {
 
 
     modifier onlyOwner() {
-        require(msg.sender == owner, "only owner has the privilege");
+        require(msg.sender == owner, "only owner can pick the winner");
         _;
     }
-
-
-//!Secret owners role----------------------------------------------------------------------//
 
 //Distribute the share function 
 //Need to improve this with validations 
@@ -73,9 +70,7 @@ contract Node {
         remove(i);
     }
 
-    function regenerate() public view returns (string[] memory){
-        return shares;
-    }
+    function regenerate(address name) public {}
 
     function notifySendingToHolders(address payable holder, string memory share)public onlyOwner{
 
@@ -84,55 +79,5 @@ contract Node {
     function askingFromHolders() public onlyOwner {
 
     }
-    function repayGasFee()public onlyOwner{
 
-    }
-
-//Secret Holder's role-------------------------------------------------------------------------//
-    function acceptInvitation() public returns (bool){
-        notifySecretOwner(true);
-        return true;
-    }
-    function rejectInvitation() public returns (bool){
-        notifySecretOwner(false);
-        return false;
-    }
-    function notifySecretOwner(bool acceptStatus) public {
-
-    }
-    function releaseSecret(address ownerAddress) public view returns (string memory){
-        string memory secret =sharesMap[ownerAddress];
-        return secret;
-    }
-    function rejectSecretRequest(address ownerAddress)public view{
-
-    }
-    
-
-}
-
-//secretHolder 
-contract PublicContract {
-    mapping(string => Node) public nodesMap;
-
-    function getAddress(string memory name) public view returns(Node){
-        return nodesMap[name];
-    }
-    function register(string memory name,Node node)public {
-        nodesMap[name]=node;
-        return;
-    }
-    function notifyShareHolders(string memory name)public {
-        Node myNode= nodesMap[name];
-        myNode.askingFromHolders();
-        return;
-    }
-    function regenerateSecret(string memory name)public view returns (string[] memory){
-        Node myNode= nodesMap[name];
-        string[] memory shares_new=myNode.regenerate();
-        return shares_new;
-    }
-
-
-    
 }
