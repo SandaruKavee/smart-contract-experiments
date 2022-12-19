@@ -18,14 +18,21 @@
 			},
 			{
 				"inputs": [],
-				"name": "acceptInvitation",
-				"outputs": [
+				"name": "MakeShareHoldersListToDistribute",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
 					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
+						"internalType": "address",
+						"name": "secretOwner",
+						"type": "address"
 					}
 				],
+				"name": "acceptInvitation",
+				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			},
@@ -37,16 +44,22 @@
 						"type": "address"
 					}
 				],
-				"name": "addShareHolders",
+				"name": "addTemporaryShareHolders",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
 				"inputs": [],
-				"name": "askingFromHolders",
-				"outputs": [],
-				"stateMutability": "nonpayable",
+				"name": "checkRequestsForBeAHolder",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -61,7 +74,7 @@
 				"name": "getShareHolders",
 				"outputs": [
 					{
-						"internalType": "address payable[]",
+						"internalType": "address[]",
 						"name": "",
 						"type": "address[]"
 					}
@@ -71,46 +84,22 @@
 			},
 			{
 				"inputs": [],
-				"name": "getShares",
+				"name": "makingBeHolderRequests",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "myContractAddress",
 				"outputs": [
 					{
-						"internalType": "string[]",
+						"internalType": "address",
 						"name": "",
-						"type": "string[]"
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "bool",
-						"name": "acceptStatus",
-						"type": "bool"
-					}
-				],
-				"name": "notifySecretOwner",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address payable",
-						"name": "holder",
-						"type": "address"
-					},
-					{
-						"internalType": "string",
-						"name": "share",
-						"type": "string"
-					}
-				],
-				"name": "notifySendingToHolders",
-				"outputs": [],
-				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -140,15 +129,47 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "rejectInvitation",
-				"outputs": [
+				"inputs": [
 					{
-						"internalType": "bool",
+						"internalType": "uint256",
 						"name": "",
-						"type": "bool"
+						"type": "uint256"
 					}
 				],
+				"name": "regeneratedShares",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					}
+				],
+				"name": "registerToPublicContract",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "secretOwner",
+						"type": "address"
+					}
+				],
+				"name": "rejectInvitation",
+				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			},
@@ -160,28 +181,9 @@
 						"type": "address"
 					}
 				],
-				"name": "rejectSecretRequest",
-				"outputs": [],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "ownerAddress",
-						"type": "address"
-					}
-				],
 				"name": "releaseSecret",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -220,6 +222,38 @@
 			{
 				"inputs": [
 					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					}
+				],
+				"name": "requestSharesFromHolders",
+				"outputs": [],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "requestedShareHolders",
+				"outputs": [
+					{
+						"internalType": "address payable",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
@@ -228,7 +262,7 @@
 				"name": "shareHolders",
 				"outputs": [
 					{
-						"internalType": "address payable",
+						"internalType": "address",
 						"name": "",
 						"type": "address"
 					}
@@ -292,6 +326,24 @@
 				],
 				"stateMutability": "view",
 				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "ownerAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "sharedString",
+						"type": "string"
+					}
+				],
+				"name": "takeTheSecretFromTheOwner",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -307,7 +359,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/ShareSecret.sol": "Node"
+			"contracts/Node.sol": "Node"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -321,12 +373,20 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/ShareSecret.sol": {
-			"keccak256": "0xd110f6350aade6279ea4ea78a932effb88d839bd5da3dd7df16937ab40ba3d93",
+		"contracts/Node.sol": {
+			"keccak256": "0x491a1e346e83ecd426bc914ea96a8d310d417f0ad6642a4a3fa69e796f3fbc29",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://3dd63fd0d8401237fc983aea455341d43dcd34f0dbdfc919944bffdb3c1cdcb6",
-				"dweb:/ipfs/QmU1vfngAvoha3Pgrebi4bQHoyu5yMbfJGCgFWrxC2Lvj1"
+				"bzz-raw://b778d04e49a4400027edfda55c0c0893634c1a6a88193d538e579fcc23337f4d",
+				"dweb:/ipfs/QmXEaWEQD76LMemwUw1cKDGeL8Nmc5bLBHDqCQ8gDqWcq7"
+			]
+		},
+		"contracts/PublicContract.sol": {
+			"keccak256": "0x60dedf31fa79ac09a1b0c3b04b5557bfd39cd29fa846f0fff462a461e9db5e73",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e10fee6dd04e858761c6c367982be2810d99ea1781a645ec487f492e16e4485c",
+				"dweb:/ipfs/QmQMUcdhHSCLKZr8zXQ487AxeViPTn4cuksxhATDXZWDwK"
 			]
 		}
 	},
